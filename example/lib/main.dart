@@ -1,7 +1,6 @@
 import 'package:example/grid_example.dart';
 import 'package:example/list_example.dart';
 import 'package:flutter/material.dart';
-import 'package:infinite_scroll/infinite_scroll.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,7 +27,8 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
           elevatedButtonTheme: ElevatedButtonThemeData(
-              style: ElevatedButton.styleFrom(minimumSize: Size(300, 50)))),
+              style:
+                  ElevatedButton.styleFrom(minimumSize: const Size(300, 50)))),
       home: const HomePage(),
     );
   }
