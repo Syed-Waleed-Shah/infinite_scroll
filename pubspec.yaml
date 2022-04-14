@@ -1,6 +1,6 @@
 name: infinite_scroll
 description: A flutter package which provides List and Grid widgets for infinite scrolling views.
-version: 1.1.0
+version: 1.1.1
 homepage: https://sites.google.com/view/infinitescroll/home
 repository: https://github.com/Syed-Waleed-Shah/infinite_scroll
 
