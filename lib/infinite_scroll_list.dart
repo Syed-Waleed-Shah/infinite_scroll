@@ -85,6 +85,26 @@ class _InfiniteScrollListState extends State<InfiniteScrollList> {
     });
   }
 
+  List<Widget> get getChildrens {
+    List<Widget> childrens = [];
+    for (Widget child in widget.children) {
+      childrens.add(child);
+    }
+    if (!widget.everythingLoaded) {
+      childrens.add(
+        widget.loadingWidget ??
+            const Padding(
+              padding: EdgeInsets.all(20),
+              child: Center(
+                child: CircularProgressIndicator.adaptive(),
+              ),
+            ),
+      );
+    }
+
+    return childrens;
+  }
+
   @override
   Widget build(BuildContext context) {
     return widget.children.isEmpty && _loading
@@ -113,19 +133,7 @@ class _InfiniteScrollListState extends State<InfiniteScrollList> {
             controller: _sc,
             padding: widget.padding,
             shrinkWrap: widget.shrinkWrap,
-            children: widget.children.map((e) => e as Widget).toList() +
-                [
-                  Visibility(
-                    visible: !widget.everythingLoaded && _loading,
-                    child: widget.loadingWidget ??
-                        const Padding(
-                          padding: EdgeInsets.all(20),
-                          child: Center(
-                            child: CircularProgressIndicator.adaptive(),
-                          ),
-                        ),
-                  ),
-                ],
+            children: getChildrens,
           );
   }
 }
